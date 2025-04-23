@@ -1,0 +1,21 @@
+src/
+└── game/
+    ├── Main.java                 # Punto de entrada al juego
+    ├── Game.java                 # Controlador principal: inicia entidades y bucles
+    ├── GameLoop.java             # Imprime el tablero en ciclos y muestra mensajes
+    ├── Board.java                # Representa la matriz del campo de batalla
+
+    ├── control/
+    │   ├── Cell.java             # Celda con sincronización y tipo de entidad
+    │   ├── EntityType.java       # Enum: PLANT, ZOMBIE, PROJECTILE, EMPTY
+    │   ├── ConsoleLogger.java    # Logger thread-safe para mostrar mensajes persistentes
+    │   ├── InputHandler.java     # Lee comandos de consola: plant <fila>, info, exit
+    │   └── EndBarrier.java       # (opcional) sincronización para fases futuras
+
+    ├── entities/
+    │   ├── Zombie.java           # Hilo individual que se mueve hacia la izquierda y muere si impactado
+    │   ├── ZombieSpawner.java    # Genera zombis automáticamente cada X tiempo
+    │   ├── PeaShooter.java       # Planta activa que detecta zombis y lanza proyectiles
+    │   ├── Projectile.java       # Hilo que se mueve por la fila e impacta zombis
+    │   ├── Plant.java            # (opcional) clase base si agregas más tipos de plantas
+    │   └── Projectile.java       # Se desplaza, detecta zombis y los elimina
